@@ -21,28 +21,26 @@ namespace practic
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //открываем браузер делайе в полный экран
             Br = new OpenQA.Selenium.Chrome.ChromeDriver();
             Br.Manage().Window.Maximize();
-
+            //открываем сайт
             Br.Navigate().GoToUrl("http://pizzele.ru");
-          
+            //Выбираем раздел пицца
             IWebElement El;
             El = Br.FindElement(By.CssSelector("#yw0 a"));
             El.Click();
 
-            //IWebElement El2;//
+            //Выбираем раздел закрытые пиццы
             El = Br.FindElement(By.LinkText("Закрытые пиццы"));
             El.Click();
-
+            //Открываем понравившуюся пиццу
             El = Br.FindElement(By.Id("product-29"));
             El.Click();
 
-            System.Threading.Thread.Sleep(5000);
+            // то что у меня не получилось
+            // System.Threading.Thread.Sleep(5000);
 
-            El = Br.FindElement(By.CssSelector("input [type='submit']"));
-            El.Click();
-           
-    
-        }
-    }
-}
+            //  El = Br.FindElement(By.CssSelector("input [type='submit']"));
+           //    El.Click();
+           // Br.Navigate().GoToUrl("http://www.pizzele.ru/product/basket");
